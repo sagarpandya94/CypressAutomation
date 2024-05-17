@@ -1,8 +1,8 @@
-///<reference types="Cypress" />
+//<reference types="Cypress" />
 
 describe('Alert window Suite', function(){
     it('Alert case 1',function(){
-        cy.visit('https://rahulshettyacademy.com/AutomationPractice/')
+        cy.visit(Cypress.env('url')+"/AutomationPractice/")
         
         //Cypress auto handles alert and confirm alert window - this behavior cannot be changed
         cy.log('here')
@@ -11,7 +11,7 @@ describe('Alert window Suite', function(){
     })
 
     it('Alert case 2', function(){
-        cy.visit('https://rahulshettyacademy.com/AutomationPractice/')
+        cy.visit(Cypress.env('url')+"/AutomationPractice/")
         cy.get('#alertbtn').click()
         cy.get('#confirmbtn').click()
 

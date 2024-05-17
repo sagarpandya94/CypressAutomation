@@ -1,4 +1,4 @@
-///<reference types="Cypress" />
+//<reference types="Cypress" />
 ///<reference types="cypress-iframe" />
 
 //Requires to install a plugin for iframe npm -install -d cypress-iframe
@@ -6,7 +6,7 @@ import 'cypress-iframe'
 
 describe('Frame Suite', function(){
     it('Case 1',function(){
-        cy.visit('https://rahulshettyacademy.com/AutomationPractice/')
+        cy.visit(Cypress.env('url')+"/AutomationPractice/")
         cy.frameLoaded("#courses-iframe")
         cy.iframe().find("a[href*='mentorship']").eq(0).click()
         cy.wait(8000)

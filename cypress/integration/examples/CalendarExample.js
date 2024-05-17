@@ -1,5 +1,3 @@
-///<reference types="Cypress" />
-
 describe('Calendar Suite', function(){
     it('Selecting date and asserting it is as expected',function(){
 
@@ -8,7 +6,7 @@ describe('Calendar Suite', function(){
         const year = "2025"
         const expectedDate = [month, date, year]
 
-        cy.visit("https://rahulshettyacademy.com/seleniumPractise/#/offers")
+        cy.visit(Cypress.env('url')+"/seleniumPractise/#/offers")
         cy.get(".react-date-picker__inputGroup").click()
         cy.get(".react-calendar__navigation__label").click()
         cy.get(".react-calendar__navigation__label").click()

@@ -1,8 +1,8 @@
-///<reference types="Cypress" />
+//<reference types="Cypress" />
 
 describe('Child window Suite', function(){
     it('Child window case 1',function(){
-        cy.visit('https://rahulshettyacademy.com/AutomationPractice/')
+        cy.visit(Cypress.env('url')+"/AutomationPractice/")
 
         // Use jquery removeAttr function to alter the dom (remove target attribute)
         cy.get('#opentab').invoke('removeAttr','target').click()
@@ -21,7 +21,7 @@ describe('Child window Suite', function(){
     })
 
     it('Child window case 2',function(){
-        cy.visit('https://rahulshettyacademy.com/AutomationPractice/')
+        cy.visit(Cypress.env('url')+"/AutomationPractice/")
 
         //We can also extract the href content as follows
         //prop is a jquery method which returns value of the property mentioned
