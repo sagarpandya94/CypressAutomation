@@ -8,12 +8,8 @@ import angularAppdemoPage from "../pageObjects/angularAppdemoPage"
 // It is kind of an edge case
 describe('API Intercept Suite', function(){
     it('Mockresponse',function(){
-
         const angularappdemoPage = new angularAppdemoPage()
-
         cy.visit(Cypress.env('url')+"/angularAppdemo/")
-
-        
 
         cy.intercept({
             method: 'GET',
@@ -31,7 +27,10 @@ describe('API Intercept Suite', function(){
         }).as('bookretrievals')
 
         angularappdemoPage.getLibraryButton().click()
-        cy.wait('@bookretrievals')
+        cy.wait('@bookretrievals').then(({request, response})=>{
+            angularappdemoPage.getRows().should('have.length',response.body.length+1)
+        })
+
         angularappdemoPage.getAlertText().should('have.text','Oops only 1 Book available')
     })
 })

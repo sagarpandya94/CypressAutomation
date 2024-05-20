@@ -6,6 +6,10 @@ class angularAppdemoPage{
     getAlertText(){
         return cy.get('p')
     }
+
+    getRows(){
+        return cy.get('tr')
+    }
 }
 
 export default angularAppdemoPage;
