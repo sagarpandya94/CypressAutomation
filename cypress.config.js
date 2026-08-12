@@ -7,17 +7,16 @@ const fs = require('fs')
 const ExcelJs = require('exceljs')
 
 
-async function setupNodeEvents(on,config){
-
+async function setupNodeEvents(on, config) {
   config.db = {
-    userName: "sagar-admin",
-    password: "Alexis12!",
-    server: "sagar-azuredb-server.database.windows.net",
-    options:{
-      database: "sagar-azuresql",
+    userName: config.env.DB_USER,
+    password: config.env.DB_PASSWORD,
+    server: config.env.DB_SERVER,
+    options: {
+      database: config.env.DB_NAME,
       encrypt: true,
-      rowCollectionOnRequestCompletion: true
-    }
+      rowCollectionOnRequestCompletion: true,
+    },
   }
 
   // implement node event listeners here
